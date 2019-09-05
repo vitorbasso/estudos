@@ -1,9 +1,13 @@
+//Variaveis usadas no meu Sass
+
 $cor-padrao: #c24e4b;
 $cor-auxiliar: #1e2c35;
 $cor-branca: white;
-$raio: 0.3em;
+$raio-grande: 50px;
 
-@mixin borda-arredondada{
+//Mixins usados no meu Sass
+
+@mixin borda-arredondada($raio: 0.3em){
   -webkit-border-radius: $raio;
   border-radius: $raio;
 }
@@ -11,6 +15,12 @@ $raio: 0.3em;
 @mixin sombra-padrao{
   -webkit-box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
   box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+}
+
+@mixin image-replacement{
+  text-indent: -9999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
 }
 
 /** Geral **/
@@ -53,30 +63,31 @@ header .container {
   position: relative;
 }
 
-.menu-opcoes {
+.menu-principal {
   position: absolute;
   right: 0;
   top: -.5em;
   font-size: 1.2em;
   font-weight: lighter;
-}
 
-.menu-opcoes ul {
-  padding-left: 0;
-}
+  ul {
+    padding-left: 0;
+  }
 
-.menu-opcoes li {
-  display: inline-block;
-  width: 5em;
-}
+  li {
+    display: inline-block;
+    width: 5em;
+  }
 
-.menu-opcoes a {
-  color: $cor-branca;
-  text-decoration: none;
-}
+  a {
+    color: $cor-branca;
+    text-decoration: none;
 
-.menu-opcoes a:hover {
-  text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
 }
 
 /** Destaque **/
@@ -110,7 +121,7 @@ header .container {
   border: 0;
   padding: .6em;
   font-size: 1.2em;
-  @include borda-arredondada();
+  @include borda-arredondada($raio-grande);
   @include sombra-padrao();
   font-weight: bold;
 }
@@ -148,9 +159,7 @@ header .container {
   display: inline-block;
   width: 50px;
   height: 60px;
-  text-indent: -9999px;
-  overflow: hidden;
-  background-repeat: no-repeat;
+  @include image-replacement();
   background-position: center;
   margin: 1em 1.5em 0 0;
 }
@@ -412,9 +421,7 @@ footer a {
   display: block;
   width: 55px;
   height: 55px;
-  text-indent: -9999px;
-  overflow: hidden;
-  background-repeat: no-repeat;
+  @include image-replacement();
   margin-left: 1em;
 }
 
