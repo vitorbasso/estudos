@@ -1,6 +1,7 @@
+@import "compass/css3";
+
 @mixin borda-arredondada($raio: 0.3em){
-  -webkit-border-radius: $raio;
-  border-radius: $raio;
+  @include border-radius($raio);
 }
 
 %image-replacement{
@@ -10,11 +11,9 @@
 }
 
 %sombra-padrao{
-  -webkit-box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 2px 6.65px 0.35px rgba(0, 0, 0, 0.3);
+  @include box-shadow(rgba(0, 0, 0, 0.5) 0 2px 6.65px);
 }
 
 %borda-arredondada{
-  -webkit-border-radius: $raio;
-  border-radius: $raio;
+  @include border-radius($raio);
 }
