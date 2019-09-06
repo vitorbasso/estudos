@@ -17,3 +17,7 @@
 %borda-arredondada{
   @include border-radius($raio);
 }
+
+@function rem($multiplicador){
+  @return round($multiplicador * $tamanho-da-fonte-padrao);
+}
